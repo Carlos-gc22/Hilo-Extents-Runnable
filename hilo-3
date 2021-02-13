@@ -16,7 +16,7 @@ public class ConsultaRegistro implements Runnable {
             for(int y=0; y < consulta[i].length; y++){
                if(consulta[i][y].length()>=1-1-2020){
                    esperarSeg(consulta.length - i);
-                   System.out.println(consulta[i][y] + "--- Registro " + consulta[i][y] + "---Tiempo " + (System.currentTimeMillis()-this.tiempo)/1000 + "seg");
+                                      System.out.println("Registro " + consulta[i][j] + " --- Tiempo " + (System.currentTimeMillis()-this.tiempo)/1000 + "seg");
                }
             }
         }
