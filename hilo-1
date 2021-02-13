@@ -1,0 +1,12 @@
+package ejemplohilo;
+
+public class Ejemplohilo extends Thread{
+
+    public static void main(String[] args) {
+        long tiempo = System.currentTimeMillis();
+        ConsultaSaldo consulta = new ConsultaSaldo(tiempo);
+        new Thread(consulta).start();
+        ConsultaRegistro registro = new ConsultaRegistro(tiempo);
+        new Thread(registro).start();
+    }
+}
