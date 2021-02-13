@@ -24,7 +24,7 @@ public class ConsultaRegistro implements Runnable {
     }
     public static void esperarSeg(int segundos){
         try{
-            Thread.sleep(segundos*100);
+            Thread.sleep(segundos*1000);
         }catch (InterruptedException ex){
             Thread.currentThread().interrupt();
         }
