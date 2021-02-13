@@ -1,0 +1,38 @@
+package ejemplohilo;
+
+public class ConsultaSaldo implements Runnable {
+    long tiempo;
+    String[][] saldo = {{"Mauro","0"},{"Kiwi","0"},{"Cholo","0"}};
+    
+    public ConsultaSaldo(long tiempo){
+        this.tiempo = tiempo;
+    }
+    
+    @Override
+    public void run(){
+        System.out.println("Consulta clientes de saldo=0...");
+        for (int i=0; i < saldo.length; i++){
+            for(int y=0; y < saldo[i].length; y++){
+               if(saldo[i][y].length()>3){
+                   continue;
+               } 
+               int num = Integer.parseInt(saldo[i][y]);
+               if(num==0){
+                   esperarSeg(num);
+                   System.out.println(saldo[i][y] + "--- Saldo " + saldo[i][y] + "--- Tiempo " + (System.currentTimeMillis()-this.tiempo)/1000 + "seg");
+                   
+               }
+            }
+        }
+        System.out.println("Saldos consultados en el tiempo: " + (System.currentTimeMillis()-this.tiempo)/1000 + "seg");
+    }
+    
+    public static void esperarSeg(int segundos){
+        try{
+            Thread.sleep(segundos*100);
+        }catch (InterruptedException ex){
+            Thread.currentThread().interrupt();
+        }
+    }
+    
+}
