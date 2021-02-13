@@ -1,0 +1,32 @@
+package ejemplohilo;
+
+public class ConsultaRegistro implements Runnable {
+    String cliente, registro;
+    long tiempo;
+    String[][] consulta = {{"Mauro","1-1-2020"},{"Kiwi","2-12-2020"},{"Cholo","5-4-2020"}};
+    
+    public ConsultaRegistro(long tiempo){
+        this.tiempo = tiempo;
+    }
+    
+    @Override
+    public void run(){
+        System.out.println("Consulta clientes registrados a partir 1-1-2020...");
+        for (int i=0; i < consulta.length; i++){
+            for(int y=0; y < consulta[i].length; y++){
+               if(consulta[i][y].length()>=1-1-2020){
+                   esperarSeg(consulta.length - i);
+                   System.out.println(consulta[i][y] + "--- Registro " + consulta[i][y] + "---Tiempo " + (System.currentTimeMillis()-this.tiempo)/1000 + "seg");
+               }
+            }
+        }
+        System.out.println("Clientes registrados 1-1-2020 en el tiempo: " + (System.currentTimeMillis()-this.tiempo)/1000 + "seg");
+    }
+    public static void esperarSeg(int segundos){
+        try{
+            Thread.sleep(segundos*100);
+        }catch (InterruptedException ex){
+            Thread.currentThread().interrupt();
+        }
+    }
+}
