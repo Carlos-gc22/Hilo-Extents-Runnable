@@ -19,8 +19,8 @@ public class ConsultaSaldo implements Runnable {
                int num = Integer.parseInt(saldo[i][y]);
                if(num==0){
                    esperarSeg(num);
-                   System.out.println(saldo[i][y] + "--- Saldo " + saldo[i][y] + "--- Tiempo " + (System.currentTimeMillis()-this.tiempo)/1000 + "seg");
-                   
+                                      System.out.println("Saldo " + saldo[i][j] + " --- Tiempo " + (System.currentTimeMillis()-this.tiempo)/1000 + "seg");
+
                }
             }
         }
